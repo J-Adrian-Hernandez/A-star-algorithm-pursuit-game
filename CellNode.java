@@ -1,3 +1,8 @@
+/* This class represents the would-be node, but is particularly
+	a class that enhances the location class. It has the necessary
+	attributes a node needs to use the A* algorithm, these are the
+	Parent, g-cost, h-cost, and f-cost.
+*/
 public class CellNode {
 	
 	private Location loc;
