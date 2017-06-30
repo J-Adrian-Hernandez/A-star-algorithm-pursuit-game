@@ -5,7 +5,7 @@
  * obstacles using the A* star algorithm to calculate the shortest
  * path to the player. The goal of the game is to escape the enemies
  * as long as possible.
- * 
+ *
 */
 import java.util.*;
 import java.lang.*;
@@ -91,6 +91,7 @@ private int cut = 15;
 
 	      if (msElapsed % 150 == 0)
 	      {
+          //commented methods below were redundant, but kept them as a note to self
 	    	  //updateUserLocation();
 	    	  //findPath(enemyLoc, userLoc);
 	    	  int random = r.nextInt(3);
@@ -134,7 +135,7 @@ private int cut = 15;
 
 	  int key = grid.checkLastKeyPressed();
 	  if(!isPaused){
-		  //Up
+		  //The up arrow key and the 'W' key moves the player up one space when pressed
 		  if(key == 38 || key == 87){
 			  userRow--;
 			  updateUserLocation();
@@ -146,7 +147,7 @@ private int cut = 15;
 				  updateUserLocation();
 			  }
 		  }
-		  //Down
+		  //The down arrow key and the 'S' key move the player down one space when pressed
 		  if(key == 40 || key == 83){
 
 			  userRow++;
@@ -160,7 +161,7 @@ private int cut = 15;
 			  }
 
 		  }
-		  //Left
+		  //The left arrow key and the 'A' key moves the player left one space when pressed
 		  if(key == 37 || key == 65){
 			  userCol--;
 			  updateUserLocation();
@@ -172,7 +173,7 @@ private int cut = 15;
 				  updateUserLocation();
 			  }
 		  }
-		  //Right
+		  //The right arrow and the 'D' key moves the player right one space when pressed
 		  if(key == 39 || key == 68){
 			  userCol++;
 			  updateUserLocation();
@@ -186,7 +187,7 @@ private int cut = 15;
 			  }
 		  }
 	  }
-	  //The space bar should pause the game
+	  //The space bar pauses the game
 	  if(key == 32){
 		  if(isPaused){
 			  isPaused = false;
@@ -232,7 +233,7 @@ private int cut = 15;
 	  grid.setImage(new Location(regi.getRow(), regi.getCol()), which);
   }
 
-  //Uses A* to find the shortest path from enemy to user
+  //Uses the A* algorithm to find the shortest path from enemy to user
   public Stack<Location> findPath(Location enemyLoc, Location userLoc){
 
 	  //will contain all the moves necessary provided by the A* algorithm
