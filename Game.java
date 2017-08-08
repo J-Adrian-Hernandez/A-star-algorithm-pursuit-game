@@ -82,21 +82,19 @@ private int cut = 15;
 	      grid.pause(48);
 	      handleKeyPress();
 
-	      //if(!tempUser.equals(userLoc)){
 	    	  tempPath = (findPath(enemyLoc, userLoc));
 	    	  tempPath2 = (findPath(enemyLoc2, userLoc));
 	    	  tempPath3 = (findPath(enemyLoc3, userLoc));
 	    	  tempUser = userLoc;
-	      //}
 
-	      if (msElapsed % 150 == 0)
+	      if (msElapsed % 250 == 0)
 	      {
           //commented methods below were redundant, but kept them as a note to self
 	    	  //updateUserLocation();
 	    	  //findPath(enemyLoc, userLoc);
 	    	  int random = r.nextInt(3);
 	    	  if(!tempPath.isEmpty()){
-
+            //Randomly selects which enemy makes the first chasing move
 	    		  if(tempPath.peek().equals(tempPath2.peek())
 	    				  || tempPath.peek().equals(tempPath3.peek())){
 	    			  if(random == 0){
@@ -115,7 +113,7 @@ private int cut = 15;
 	    		  }
 	    		  else{
 	    			  enemyMove(tempPath.pop(), enemyLoc, enemies[0]);
-	    			  isGameOver();
+	    			  isGameOver(); //Returns true if enemy ocupies the same space as user
 	    			  enemyMove(tempPath2.pop(), enemyLoc2, enemies[1]);
 	    			  isGameOver();
 	    			  enemyMove(tempPath3.pop(), enemyLoc3, enemies[2]);
@@ -378,9 +376,12 @@ private int cut = 15;
 
   //Spawns obstacles
   public void addObs(){
+    Random r = new Random();
+    int random;
 	  for(int i = 2; i < grid.getNumCols()-1; i++){
 		  for(int j = 2; j < grid.getNumRows()-2; j++){
-			  if(i % j == 1 && (i % 3 == 0 || i % 3 == 1)){
+        random = r.nextInt(grid.getNumRows());
+			  if(random % j == 1 && (random % 3 == 0 || i % 3 == 1)){
 			  grid.setImage(new Location(i, j), obs);
 			  }
 		  }
