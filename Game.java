@@ -218,11 +218,13 @@ private int cut = 15;
 	  return withinBound(loc) && (grid.getImage(loc) == null ||
 			  grid.getImage(loc) == user);
   }
+
+  //Returns true if all surrouding blocks are empty and within boundaries
   public boolean isWalkable(Location loc){
 	  return withinBound(loc) && grid.getImage(loc) == null;
   }
 
-
+  //Modifier method for the continous updating of the enemy location
   public void enemyMove(Location closer, Location regi, String which){
 	  grid.setImage(new Location(regi.getRow(), regi.getCol()), null);
 	  regi.row = closer.getRow();
@@ -250,12 +252,15 @@ private int cut = 15;
 	  //Make the starting node the current node
 	  CellNode current = (CellNode) open.get(0);
 	  //System.out.println(current); /*Tests toString function*/
+
 	  //Initial node keeps track of the initial location of enemy
 	  Location initial = new Location(enemyLoc.getRow(), enemyLoc.getCol());
 
 	  Random r = new Random();
 
-
+    //while the user hasn't been caught and the distance
+    //from enemy to user multiplied by an arbitrary
+    // 'cut' isn't more than the number of nodes contained in open
 	  while(!current.getNodeLoc().equals(userLoc) &&
 			  !(open.size() > cut*current.getNodeLoc().dist(userLoc))){
 
@@ -330,6 +335,7 @@ private int cut = 15;
 
 		  //Add current to closed list
 		  closed.add(current);
+      //nodeVisuals is used for testing and illustration purposes
 		  if(nodeVisuals){
 			  grid.setColor(current.getNodeLoc(), rgb[0]);
 		  }
@@ -338,7 +344,6 @@ private int cut = 15;
 
 		  //recalculate f costs of all nodes in open
 		  //object to use cost
-		  //May need to revise this one
 		  for(CellNode node : open){
 			  if(node.parent != null){
 				  for(CellNode explored: closed){
