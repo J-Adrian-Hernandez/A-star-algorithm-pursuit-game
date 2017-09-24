@@ -22,7 +22,7 @@ private boolean isOver = false;
 private boolean nodeVisuals = false;
 private Grid grid;
 private Grid background;
-private Grid gameOver;
+private Grid gameOver; //Needs to be developed
 private int userRow;
 private int userCol;
 private Location userLoc;
@@ -39,7 +39,8 @@ private Location enemyLoc3;
 private int msElapsed;
 private int timesAvoid;
 private int dimensions = 15;
-private int cut = 15;
+private int cut = 15; //Used in the measurement of the minimum distance to enemies
+	//for A* to execute per enemy
 
   public Game()
   {
