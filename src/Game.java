@@ -15,12 +15,14 @@ public class Game{
 private String user = "user.gif";
 private String[] enemies = {"enemy.png", "enemy2.png", "enemy3.png"};
 private String obs = "obstacle.png";
+private String audioFilePath = "audio/HyouhakuKokuten.wav";
 
 private Color[] rgb = {new Color(255, 0, 0), new Color(0, 255, 0), new Color(0, 0, 255)};
 private boolean isPaused = false;
 private boolean isOver = false;
 private boolean nodeVisuals = false;
 private Grid grid;
+private Audio audioPlayer;
 private Grid background;
 private Grid gameOver; //Needs to be developed
 private int userRow;
@@ -44,7 +46,6 @@ private int cut = 15; //Used in the measurement of the minimum distance to enemi
 
   public Game()
   {
-
     grid = new Grid(dimensions, dimensions);
     userRow = grid.getNumRows()-1;
     userCol = 0;
@@ -66,15 +67,19 @@ private int cut = 15; //Used in the measurement of the minimum distance to enemi
     grid.setImage(new Location(enemyRow, enemyCol), enemies[0]);
     grid.setImage(new Location(enemyRow2, enemyCol2), enemies[1]);
     grid.setImage(new Location(enemyRow3, enemyCol3), enemies[2]);
+    audioPlayer = new Audio("audio/HyouhakuKokuten.wav");
   }
 
   public void play()
   {
+	  //play the music
+	  audioPlayer.play();
 	  Random r = new Random();
 	  Stack<Location> tempPath = (findPath(enemyLoc, userLoc));
 	  Stack<Location> tempPath2 = (findPath(enemyLoc2, userLoc));
 	  Stack<Location> tempPath3 = (findPath(enemyLoc3, userLoc));
 	  Location tempUser = userLoc;
+
     while (!isOver)
     {
     	//Allows user to unpause the game
