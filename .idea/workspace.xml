@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c27eab55-4156-4833-a19d-4368e6a95dde" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/audio/HyouhakuKokuten.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/production/A-star-algorithm-pursuit-game/Audio.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/production/A-star-algorithm-pursuit-game/Audio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/production/A-star-algorithm-pursuit-game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/production/A-star-algorithm-pursuit-game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CellNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CellNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/enemy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/enemy2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/enemy3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/obstacle.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/obstacle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/user.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +38,7 @@
         <counts>
           <entry key="gif" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="3" />
+          <entry key="java" value="5" />
           <entry key="png" value="6" />
         </counts>
       </usages-collector>
@@ -44,44 +46,73 @@
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="7" />
-          <entry key="JAVA" value="3" />
+          <entry key="JAVA" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="638" />
+          <entry key="java" value="2161" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="638" />
+          <entry key="JAVA" value="2161" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
+            <state relative-caret-position="304">
+              <caret line="467" column="5" lean-forward="true" selection-start-line="467" selection-start-column="5" selection-end-line="467" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7794#7795#0" expanded="true" />
+                <element signature="e#7852#7853#0" expanded="true" />
+                <element signature="e#7893#7894#0" expanded="true" />
+                <element signature="e#7954#7955#0" expanded="true" />
+                <element signature="e#10284#10294#0" expanded="true" />
+                <element signature="e#16103#16104#0" expanded="true" />
+                <element signature="e#16156#16157#0" expanded="true" />
+                <element signature="e#12809#12810#0" expanded="true" />
+                <element signature="e#12868#12869#0" expanded="true" />
+                <element signature="e#13233#13234#0" expanded="true" />
+                <element signature="e#13265#13266#0" expanded="true" />
+                <element signature="e#13446#13447#0" expanded="true" />
+                <element signature="e#13462#13463#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Random.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="387" selection-start-line="387" selection-end-line="387" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Location.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Audio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="435">
+              <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#458#459#0" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="78" column="3" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
+            <state relative-caret-position="102">
+              <caret line="182" column="47" selection-start-line="182" selection-start-column="47" selection-end-line="182" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -109,6 +140,11 @@
     <findStrings>
       <find>thread</find>
       <find>main</find>
+      <find>i</find>
+      <find>update</find>
+      <find>isexpand</find>
+      <find>enemies[0</find>
+      <find>score</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,8 +153,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Audio.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
@@ -133,28 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="audio" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,16 +185,38 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="images" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="A-star-algorithm-pursuit-game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="A-star-algorithm-pursuit-game" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533628948113" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533697537413" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -225,10 +261,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="61" width="1400" height="775" extended-state="0" />
+    <frame x="2" y="61" width="1400" height="819" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17673048" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17893961" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -238,7 +274,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3287483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39970717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -246,7 +282,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3287483" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -279,8 +315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="78" column="3" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
+        <state relative-caret-position="102">
+          <caret line="182" column="47" selection-start-line="182" selection-start-column="47" selection-end-line="182" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -294,24 +330,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/Audio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
+        <state relative-caret-position="435">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Audio.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="147">
+          <caret line="387" selection-start-line="387" selection-end-line="387" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="467" column="5" lean-forward="true" selection-start-line="467" selection-start-column="5" selection-end-line="467" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#7794#7795#0" expanded="true" />
+            <element signature="e#7852#7853#0" expanded="true" />
+            <element signature="e#7893#7894#0" expanded="true" />
+            <element signature="e#7954#7955#0" expanded="true" />
+            <element signature="e#10284#10294#0" expanded="true" />
+            <element signature="e#16103#16104#0" expanded="true" />
+            <element signature="e#16156#16157#0" expanded="true" />
+            <element signature="e#12809#12810#0" expanded="true" />
+            <element signature="e#12868#12869#0" expanded="true" />
+            <element signature="e#13233#13234#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13446#13447#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
           </folding>
         </state>
       </provider>
