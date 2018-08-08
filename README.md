@@ -11,3 +11,16 @@ This project is meant to be a resource for the interested in making a game
 in Java and/or trying to learn how to implement the A* algorithm.
 I hope you find my implementation of the algorithm in this little game
 helpful to your learning!
+
+# Music and Sound Credits
+
+Music:
+Tracks: Hyouhaku + Kokuten
+Artist: Unknown
+
+No Copyright Infringement is intended.
+
+# Image files
+
+Game: Pokemon Emerald
+Company: Pokemon Company
