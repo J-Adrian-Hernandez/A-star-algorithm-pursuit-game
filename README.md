@@ -1,4 +1,4 @@
-# A-star-algorithm-pursuit-game
+# A-star-algorithm-game
 
 Description:
 A game in which agents pursue a player in a map with obstacles using
