@@ -310,11 +310,12 @@ public class Game {
             //remove the one with the lowest f cost from the open and add to close
             //If two have lowest f add the one with lowest h, if tied again
             //add one at random
-            //lowest is set to a large number so that any CellNode will be able to overwrite it
-            int lowestF = 999;
+            //lowest is set to an Integer's mac value ( (2^31)-1 )
+	    //so that any CellNode will be able to overwrite it
+            int lowestF = Integer.MAX_VALUE;
             int tempF;
             int tempH;
-            int lowestH = 999;
+            int lowestH = Integer.MAX_VALUE;
             for (CellNode child : open) {
                 if (child.parent != null) {
                     tempF = child.getFcost();
