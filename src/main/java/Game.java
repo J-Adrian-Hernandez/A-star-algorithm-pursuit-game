@@ -410,14 +410,13 @@ public class Game {
     public Location getFreeCellForGem() {
 
         Random r = new Random();
-	
-	//TODO : Make this a do-while-loop
-        int row = r.nextInt(grid.getNumRows() - 1);
-        int col = r.nextInt(grid.getNumCols() - 1);
-        while (!isGemSpawnable(new Location(row, col))) {
+
+        int row;
+        int col;
+        do{
             row = r.nextInt(grid.getNumRows());
             col = r.nextInt(grid.getNumRows());
-        }
+        }while (!isGemSpawnable(new Location(row, col)));
 
         return new Location(row, col);
     }
