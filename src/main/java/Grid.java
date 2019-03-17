@@ -67,7 +67,10 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
         addMouseListener(this);
         frame.getContentPane().add(this);
 
+        //Aids in centering the window in setLocation
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         frame.pack();
+        frame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         frame.setVisible(true);
     }
 
