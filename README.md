@@ -19,21 +19,21 @@ Compiling the program:
 Terminal
 javac Game.java
 
-IDE
+IDE: 
 run the compile tool
 
-Gradle
+Gradle: 
 gradle assemble
 
-Running the program:
+# Running the program:
 
-Terminal
+Terminal: 
 java Game
 
-IDE
+IDE: 
 there should be a run or debug button you can press
 
-Gradle
+Gradle: 
 gradle run
 
 # Music and Sound Credits
