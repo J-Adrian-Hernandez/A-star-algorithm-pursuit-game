@@ -31,8 +31,7 @@ Terminal
 java Game
 
 IDE
-There should be a run or debug button you can press. 
-This should run the game successful if compiled.
+there should be a run or debug button you can press
 
 Gradle
 gradle run
