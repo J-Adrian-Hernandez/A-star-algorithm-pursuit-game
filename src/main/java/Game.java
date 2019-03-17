@@ -9,6 +9,7 @@
  *
  */
 
+import javax.swing.*;
 import java.util.*;
 import java.lang.*;
 
@@ -19,7 +20,6 @@ public class Game {
     private String gem = "red-gem.png";
     private String[] enemies = {"enemy.png", "enemy2.png", "enemy3.png"};
     private String obs = "obstacle.png";
-    private String audioFilePath = "./src/main/resources/HyouhakuKokuten.wav";
 
     private Color[] rgb = {new Color(255, 0, 0), new Color(0, 255, 0), new Color(0, 0, 255)};
     private boolean isPaused = false;
@@ -80,12 +80,10 @@ public class Game {
         grid.setImage(new Location(enemyRow, enemyCol), enemies[0]);
         grid.setImage(new Location(enemyRow2, enemyCol2), enemies[1]);
         grid.setImage(new Location(enemyRow3, enemyCol3), enemies[2]);
-        audioPlayer = new Audio(audioFilePath);
     }
 
     public void play() {
         //play the music
-        audioPlayer.play();
         Random r = new Random();
         Stack<Location> tempPath = (findPath(enemyLoc, userLoc));
         Stack<Location> tempPath2 = (findPath(enemyLoc2, userLoc));
@@ -446,7 +444,7 @@ public class Game {
         grid.setTitle("Pursuit " + "Score " + getScore());
     }
 
-    public void isGameOver() {
+    public void isGameOver(){
         //The game ends once user is touched by enemy
         if (!isOver) {
             if (enemyLoc.equals(userLoc) || enemyLoc2.equals(userLoc)
@@ -454,6 +452,15 @@ public class Game {
                 isOver = true;
                 System.out.println("Game Over!");
                 grid.showMessageDialog("Game Over!\n" + "Score " + getScore());
+                int choice = grid.showConfirmDialog();
+                if(choice == JOptionPane.YES_NO_OPTION){
+                    grid.getFrame().dispose();
+                    test();
+                }
+                else{
+                    grid.getFrame().dispose();
+                }
+
             }
         }
     }
@@ -473,6 +480,11 @@ public class Game {
     }
 
     public static void main(String[] args) {
+        String audioFilePath = "./src/main/resources/HyouhakuKokuten.wav";
+        Audio audioPlayer = new Audio(audioFilePath);
+        audioPlayer.play();
         test();
+        audioPlayer.pause(1000);
+        System.exit(0);
     }
 }

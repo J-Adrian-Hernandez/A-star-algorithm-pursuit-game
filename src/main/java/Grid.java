@@ -24,6 +24,10 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
         setTitle(imageFileName);
     }
 
+    public JFrame getFrame(){
+        return this.frame;
+    }
+
     private BufferedImage loadImage(String imageFileName) {
         URL url = getClass().getResource(imageFileName);
         if (url == null)
@@ -257,6 +261,12 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
 
     public void showMessageDialog(String message) {
         JOptionPane.showMessageDialog(this, message);
+    }
+
+    public int showConfirmDialog(){
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Wanna play again?","Warning",dialogButton);
+        return dialogResult;
     }
 
     public String showInputDialog(String message) {

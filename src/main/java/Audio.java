@@ -70,4 +70,12 @@ public class Audio implements Runnable {
         line.drain();
         line.close();
     }
+
+    public static void pause(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (Exception e) {
+            //ignore
+        }
+    }
 }
