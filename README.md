@@ -25,7 +25,7 @@ run the compile tool
 Gradle: 
 gradle assemble
 
-# Running the program:
+# Running the program
 
 Terminal: 
 java Game
