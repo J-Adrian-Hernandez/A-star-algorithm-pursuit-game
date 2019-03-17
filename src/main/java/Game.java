@@ -24,11 +24,9 @@ public class Game {
     private Color[] rgb = {new Color(255, 0, 0), new Color(0, 255, 0), new Color(0, 0, 255)};
     private boolean isPaused = false;
     private boolean isOver = false;
+    //TODO make the visuals look nicer
     private boolean nodeVisuals = false;
     private Grid grid;
-    private Audio audioPlayer;
-    private Grid background;
-    private Grid gameOver; //Needs to be developed
     private int score;
     private int userRow;
     private int userCol;
@@ -47,12 +45,13 @@ public class Game {
     private int enemyCol3;
     private Location enemyLoc3;
     private int msElapsed;
-    private int timesAvoid;
-    private int dimensions = 15;
+    private int dimensions;
     private int cut = 15; //Used in the measurement of the minimum distance to enemies
     //for A* to execute per enemy
+    private int nTimesKeyHandled;
 
     public Game() {
+        dimensions = 20;
         grid = new Grid(dimensions, dimensions);
         score = 0;
         addObs();
@@ -72,7 +71,6 @@ public class Game {
         enemyCol3 = grid.getNumCols() - 1;
         enemyLoc3 = new Location(enemyRow3, enemyCol3);
         msElapsed = 0;
-        timesAvoid = 0;
         updateTitle();
         grid.setImage(new Location(userRow, userCol), user);
         grid.setImage(new Location(gemRow, gemCol), gem);
@@ -83,19 +81,27 @@ public class Game {
     }
 
     public void play() {
-        //play the music
         Random r = new Random();
-        Stack<Location> tempPath = (findPath(enemyLoc, userLoc));
-        Stack<Location> tempPath2 = (findPath(enemyLoc2, userLoc));
-        Stack<Location> tempPath3 = (findPath(enemyLoc3, userLoc));
+        Stack<Location> tempPath;
+        Stack<Location> tempPath2;
+        Stack<Location> tempPath3;
         Location tempUser;
+
+        //This variable helps cap the number of times the key is handled while the
+        //thread is sleeping (capping it to 1)
 
         while (!isOver) {
             //Allows user to unpause the game
-            handleKeyPress();
-            while (!isPaused && !isOver) {
+            while(isPaused){
                 grid.pause(50);
                 handleKeyPress();
+            }
+            while (!isPaused && !isOver) {
+                nTimesKeyHandled = 0;
+                grid.pause(100);
+                if(nTimesKeyHandled < 1){
+                    handleKeyPress();
+                }
                 gemCaught();
                 if (!gemExists) addGem();
                 tempPath = (findPath(enemyLoc, userLoc));
@@ -103,7 +109,7 @@ public class Game {
                 tempPath3 = (findPath(enemyLoc3, userLoc));
                 tempUser = userLoc;
 
-                if (msElapsed % 300 == 0) {
+                if (msElapsed % 200 == 0) {
 
                     int random = r.nextInt(3);
                     if (!tempPath.isEmpty()) {
@@ -132,8 +138,8 @@ public class Game {
                     }
                 }
                 updateTitle();
-                msElapsed += 50;
-                upCut();
+                msElapsed += 100;
+                //upCut();
             }
         }
     }
@@ -142,6 +148,13 @@ public class Game {
 
         int key = grid.checkLastKeyPressed();
         if (!isPaused) {
+
+            //pausing
+            if (key == 32) {
+                isPaused = true;
+                System.out.println("The game has been paused");
+            }
+
             //The up arrow key and the 'W' key moves the player up one space when pressed
             if (key == 38 || key == 87) {
                 userRow--;
@@ -153,6 +166,7 @@ public class Game {
                     userRow++;
                     updateUserLocation();
                 }
+                nTimesKeyHandled++;
             }
             //The down arrow key and the 'S' key move the player down one space when pressed
             if (key == 40 || key == 83) {
@@ -166,7 +180,7 @@ public class Game {
                     userRow--;
                     updateUserLocation();
                 }
-
+                nTimesKeyHandled++;
             }
             //The left arrow key and the 'A' key moves the player left one space when pressed
             if (key == 37 || key == 65) {
@@ -179,6 +193,7 @@ public class Game {
                     userCol++;
                     updateUserLocation();
                 }
+                nTimesKeyHandled++;
             }
             //The right arrow and the 'D' key moves the player right one space when pressed
             if (key == 39 || key == 68) {
@@ -192,16 +207,13 @@ public class Game {
                     userCol--;
                     updateUserLocation();
                 }
+                nTimesKeyHandled++;
             }
         }
-        //The space bar pauses the game
-        if (key == 32) {
-            if (isPaused) {
+        else{
+            if(key == 32){
                 isPaused = false;
                 System.out.println("The game has resumed");
-            } else {
-                isPaused = true;
-                System.out.println("The game has been paused");
             }
         }
 
