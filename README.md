@@ -12,6 +12,30 @@ in Java and/or trying to learn how to implement the A* algorithm.
 I hope you find my implementation of the algorithm in this little game
 helpful to your learning!
 
+# Getting Started
+
+Compiling the program:
+
+Terminal
+javac Game.java
+
+IDE
+run the compile tool
+
+Gradle
+gradle assemble
+
+Running the program:
+
+Terminal
+java Game
+
+IDE
+There should be a run or debug button you can press. This should run the game successful if compiled.
+
+Gradle
+gradle run
+
 # Music and Sound Credits
 
 Music:
