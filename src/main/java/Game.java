@@ -24,7 +24,7 @@ public class Game {
     private Color[] rgb = {new Color(255, 0, 0), new Color(0, 255, 0), new Color(0, 0, 255)};
     private boolean isPaused = false;
     private boolean isOver = false;
-    //TODO make the visuals look nicer
+    // TODO make the visuals look nicer
     private boolean nodeVisuals = false;
     private Grid grid;
     private int score;
@@ -47,7 +47,7 @@ public class Game {
     private int msElapsed;
     private int dimensions;
     private int cut = 15; //Used in the measurement of the minimum distance to enemies
-    //for A* to execute per enemy
+    // For A* to execute per enemy
     private int nTimesKeyHandled;
 
     public Game() {
@@ -87,8 +87,8 @@ public class Game {
         Stack<Location> tempPath3;
         Location tempUser;
 
-        //This variable helps cap the number of times the key is handled while the
-        //thread is sleeping (capping it to 1)
+        // This variable helps cap the number of times the key is handled while the
+        // Thread is sleeping (capping it to 1)
 
         while (!isOver) {
             //Allows user to unpause the game
@@ -227,7 +227,7 @@ public class Game {
         enemyLoc = (new Location(enemyRow, enemyCol));
     }
 
-    //checks if a location is within boundary
+    // Checks if a location is within boundary
     public boolean withinBound(Location loc) {
         return loc.getRow() >= 0 && loc.getRow() < grid.getNumRows()
                 && loc.getCol() >= 0 && loc.getCol() <= grid.getNumCols() - 1;
@@ -254,7 +254,7 @@ public class Game {
         grid.setImage(new Location(regi.getRow(), regi.getCol()), null);
         regi.row = closer.getRow();
         regi.col = closer.getCol();
-        //updateEnemyLocation();
+        // updateEnemyLocation();
         grid.setImage(new Location(regi.getRow(), regi.getCol()), which);
     }
 
@@ -456,7 +456,7 @@ public class Game {
     }
 
     public void isGameOver(){
-        //The game ends once user is touched by enemy
+        // The game ends once user is touched by enemy
         if (!isOver) {
             if (enemyLoc.equals(userLoc) || enemyLoc2.equals(userLoc)
                     || enemyLoc3.equals(userLoc)) {
