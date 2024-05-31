@@ -15,7 +15,7 @@ import java.lang.*;
 
 public class Game {
 
-    //Easy linking to actual file names
+    // Linking to actual file names
     private String user = "user.gif";
     private String gem = "red-gem.png";
     private String[] enemies = {"enemy.png", "enemy2.png", "enemy3.png"};
@@ -149,13 +149,13 @@ public class Game {
         int key = grid.checkLastKeyPressed();
         if (!isPaused) {
 
-            //pausing
+            // Pausing
             if (key == 32) {
                 isPaused = true;
                 System.out.println("The game has been paused");
             }
 
-            //The up arrow key and the 'W' key moves the player up one space when pressed
+            // The up arrow key and the 'W' key moves the player up one space when pressed
             if (key == 38 || key == 87) {
                 userRow--;
                 updateUserLocation();
@@ -168,7 +168,7 @@ public class Game {
                 }
                 nTimesKeyHandled++;
             }
-            //The down arrow key and the 'S' key move the player down one space when pressed
+            // The down arrow key and the 'S' key move the player down one space when pressed
             if (key == 40 || key == 83) {
 
                 userRow++;
@@ -182,7 +182,7 @@ public class Game {
                 }
                 nTimesKeyHandled++;
             }
-            //The left arrow key and the 'A' key moves the player left one space when pressed
+            // The left arrow key and the 'A' key moves the player left one space when pressed
             if (key == 37 || key == 65) {
                 userCol--;
                 updateUserLocation();
@@ -195,7 +195,7 @@ public class Game {
                 }
                 nTimesKeyHandled++;
             }
-            //The right arrow and the 'D' key moves the player right one space when pressed
+            // The right arrow and the 'D' key moves the player right one space when pressed
             if (key == 39 || key == 68) {
                 userCol++;
                 updateUserLocation();
@@ -233,13 +233,13 @@ public class Game {
                 && loc.getCol() >= 0 && loc.getCol() <= grid.getNumCols() - 1;
     }
 
-    //Returns false if that location is blocked, true otherwise
+    // Returns false if that location is blocked, true otherwise
     public boolean isExpandable(Location loc) {
         return withinBound(loc) && (grid.getImage(loc) == null ||
                 grid.getImage(loc) == user);
     }
 
-    //Returns true if all surrouding blocks are empty and within boundaries
+    // Returns true if all surrouding blocks are empty and within boundaries
     public boolean isWalkable(Location loc) {
         return withinBound(loc) && (grid.getImage(loc) == null || grid.getImage(loc) == gem);
     }
@@ -249,7 +249,7 @@ public class Game {
                 grid.getImage(loc) == enemies[1] || grid.getImage(loc) == enemies[2];
     }
 
-    //Modifier method for the continous updating of the enemy location
+    // Modifier method for the continuous updating of the enemy location
     public void enemyMove(Location closer, Location regi, String which) {
         grid.setImage(new Location(regi.getRow(), regi.getCol()), null);
         regi.row = closer.getRow();
@@ -258,47 +258,47 @@ public class Game {
         grid.setImage(new Location(regi.getRow(), regi.getCol()), which);
     }
 
-    //Uses the A* algorithm to find the shortest path from enemy to user
+    // Uses the A* algorithm to find the shortest path from enemy to user
     public Stack<Location> findPath(Location enemyLoc, Location userLoc) {
 
-        //will contain all the moves necessary provided by the A* algorithm
+        // Will contain all the moves necessary provided by the A* algorithm
         Stack<Location> path = new Stack<Location>();
 
-        //Open list of nodes
+        // Open list of nodes
         List<CellNode> open = new ArrayList<CellNode>();
 
-        //Closed list of nodes
+        // Closed list of nodes
         List<CellNode> closed = new ArrayList<CellNode>();
 
-        //Add starting location to open
-        //Notice that the starting node does not have a parent
+        // Add starting location to open
+        // Notice that the starting node does not have a parent
         open.add(new CellNode(enemyLoc, userLoc));
 
-        //Make the starting node the current node
+        // Make the starting node the current node
         CellNode current = (CellNode) open.get(0);
         //System.out.println(current); /*Tests toString function*/
 
-        //Initial node keeps track of the initial location of enemy
+        // Initial node keeps track of the initial location of enemy
         Location initial = new Location(enemyLoc.getRow(), enemyLoc.getCol());
 
         Random r = new Random();
 
-        //while the user hasn't been caught and the distance
-        //from enemy to user multiplied by an arbitrary
+        // While the user hasn't been caught and the distance
+        // from enemy to user multiplied by an arbitrary
         // 'cut' isn't more than the number of nodes contained in open
         while (!current.getNodeLoc().equals(userLoc) &&
                 !(open.size() > cut * current.getNodeLoc().dist(userLoc))) {
 
             Location myCurrent = new Location(current.getNodeLoc().getRow(),
                     current.getNodeLoc().getCol());
-            //Determine which neighbors are non obstructions
-            //checking neighbors in this order Up, Down, Left, Right
+            // Determine which neighbors are non obstructions
+            // Checking neighbors in this order Up, Down, Left, Right
             Location up = new Location(myCurrent.getRow() - 1, myCurrent.getCol());
             Location down = new Location(myCurrent.getRow() + 1, myCurrent.getCol());
             Location left = new Location(myCurrent.getRow(), myCurrent.getCol() - 1);
             Location right = new Location(myCurrent.getRow(), myCurrent.getCol() + 1);
 
-            //Array containing current's neighbors
+            // Array containing current's neighbors
             Location[] neighbors = new Location[]{up, down, left, right};
 
             for (Location neighbor : neighbors) {
@@ -310,18 +310,17 @@ public class Game {
                 }
             }
 
-		  /*Testing to see that only the right locations(neighbors) were put in open
-		  It works!*/
+		  /*Testing to see that only the right locations(neighbors) were put in open */
 
             //System.out.println(open);
 
-            //Calculate costs of all CellNodes in open list
-
-            //remove the one with the lowest f cost from the open and add to close
-            //If two have lowest f add the one with lowest h, if tied again
-            //add one at random
-            //lowest is set to an Integer's mac value ( (2^31)-1 )
-	    //so that any CellNode will be able to overwrite it
+            /* Calculate costs of all CellNodes in open list
+                remove the one with the lowest f cost from the open and add to close
+                If two have lowest f add the one with lowest h, if tied again
+                add one at random
+                lowest is set to an Integer's mac value ( (2^31)-1 )
+                so that any CellNode will be able to overwrite it
+            */
             int lowestF = Integer.MAX_VALUE;
             int tempF;
             int tempH;
@@ -343,7 +342,7 @@ public class Game {
                 }
             }
 
-            //We need a list of candidates, in case of a F cost tie
+            // We need a list of candidates, in case of a F cost ties
             List<CellNode> candidates = new ArrayList<CellNode>();
 
             for (CellNode child : open) {
@@ -352,22 +351,22 @@ public class Game {
                 }
             }
 
-            //If there was indeed a tie, we choose one at random to be current
-            //else if there is only one candidate, that will be our current
+            // If there was indeed a tie, we choose one at random to be current
+            // Else if there is only one candidate, that will be our current
             int random = r.nextInt(candidates.size());
             current = candidates.get(random);
 
-            //Add current to closed list
+            // Add current to closed list
             closed.add(current);
-            //nodeVisuals is used for testing and illustration purposes
+            // nodeVisuals is used for testing and illustration purposes
             if (nodeVisuals) {
                 grid.setColor(current.getNodeLoc(), rgb[0]);
             }
             //Remove current from open list
             open.remove(current);
 
-            //recalculate f costs of all nodes in open
-            //object to use cost
+            // Recalculate f costs of all nodes in open
+            // Object to use cost
             for (CellNode node : open) {
                 if (node.parent != null) {
                     for (CellNode explored : closed) {
@@ -402,7 +401,7 @@ public class Game {
         return path;
     }
 
-    //Spawns obstacles
+    // Spawns obstacles
     public void addObs() {
         Random r = new Random();
         int random;
@@ -416,7 +415,7 @@ public class Game {
         }
     }
 
-    //Spawns gems the user collects for points
+    // Spawns gems the user collects for points
     public Location getFreeCellForGem() {
 
         Random r = new Random();
