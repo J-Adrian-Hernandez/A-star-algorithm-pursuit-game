@@ -67,7 +67,7 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
         addMouseListener(this);
         frame.getContentPane().add(this);
 
-        //Aids in centering the window in setLocation
+        // Aids in centering the window in setLocation
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         frame.pack();
         frame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -224,15 +224,15 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
         }
     }
 
-    //returns -1 if no key pressed since last call.
-    //otherwise returns the code for the last key pressed.
+    // Returns -1 if no key pressed since last call.
+    // Otherwise returns the code for the last key pressed.
     public int checkLastKeyPressed() {
         int key = lastKeyPressed;
         lastKeyPressed = -1;
         return key;
     }
 
-    //returns null if no location clicked since last call.
+    // Returns null if no location clicked since last call.
     public Location checkLastLocationClicked() {
         Location loc = lastLocationClicked;
         lastLocationClicked = null;
@@ -268,8 +268,7 @@ public class Grid extends JComponent implements KeyListener, MouseListener {
 
     public int showConfirmDialog(){
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Wanna play again?","Warning",dialogButton);
-        return dialogResult;
+        return JOptionPane.showConfirmDialog (null, "Wanna play again?","Warning",dialogButton);
     }
 
     public String showInputDialog(String message) {

@@ -480,11 +480,6 @@ public class Game {
         return this.score + (msElapsed / 1000);
     }
 
-    public void upCut() {
-        if (cut > 1)
-            cut--;
-    }
-
     public static void test() {
         Game game = new Game();
         game.play();
