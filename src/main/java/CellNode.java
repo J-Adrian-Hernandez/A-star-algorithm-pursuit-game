@@ -11,12 +11,12 @@ public class CellNode {
     private int h;
     private int f;
 
-    //This constructor is for the current place holder
+    // This constructor is for the current place holder
     public CellNode() {
 
     }
 
-    //This constructor is for the root
+    // This constructor is for the root
     public CellNode(Location loc, Location user) {
         this.loc = loc;
         parent = null;
@@ -25,7 +25,7 @@ public class CellNode {
         this.f = g + h;
     }
 
-    //Constructs the children
+    // Constructs the children
     public CellNode(CellNode parent, Location loc, Location user) {
         this.loc = loc;
         this.parent = parent;
