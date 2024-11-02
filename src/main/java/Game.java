@@ -16,19 +16,16 @@ import java.lang.*;
 public class Game {
 
     // Linking to actual file names
-    private String user = "user.gif";
-    private String gem = "red-gem.png";
-    private String[] enemies = {"enemy.png", "enemy2.png", "enemy3.png"};
-    private String obs = "obstacle.png";
+    private String gemImg = "red-gem.png";
+    private String[] enemyImgs = {"enemy.png", "enemy2.png", "enemy3.png"};
+    private String obstacleImg = "obstacle.png";
     private Color[] rgb = {new Color(255, 0, 0), new Color(0, 255, 0), new Color(0, 0, 255)};
     private boolean isPaused = false;
     private boolean isOver = false;
     private boolean nodeVisuals = false;
     private Grid grid;
     private int score;
-    private int userRow;
-    private int userCol;
-    private Location userLoc;
+    private Player player;
     private Location gemLoc;
     private boolean gemExists;
     private Location[] enemyLocs = new Location[3];
@@ -43,15 +40,15 @@ public class Game {
         score = 0;
         addObs();
 
-        // Set up user location
-        userRow = grid.getNumRows() - 1;
-        userCol = 0;
-        userLoc = new Location(userRow, userCol);
-        grid.setImage(userLoc, user);
+        // Construct player object
+        int playerRow = grid.getNumRows() - 1, playerCol = 0;
+        String playerImg = "user.gif";
+        player = new Player(new Location(playerRow, playerCol), playerImg);
+        grid.setImage(player.location, player.image);
 
         // Set up gem location
         gemLoc = getFreeCellForGem();
-        grid.setImage(gemLoc, gem);
+        grid.setImage(gemLoc, gemImg);
         gemExists = true;
 
         // Set up enemy locations
@@ -63,7 +60,7 @@ public class Game {
 
         for (int i = 0; i < enemyLocs.length; i++) {
             enemyLocs[i] = new Location(enemyPositions[i][0], enemyPositions[i][1]);
-            grid.setImage(enemyLocs[i], enemies[i]);
+            grid.setImage(enemyLocs[i], enemyImgs[i]);
         }
 
         msElapsed = 0;
@@ -100,7 +97,7 @@ public class Game {
                 // Find paths for each enemy to the user location
                 Stack<Location>[] tempPaths = new Stack[enemyLocs.length];
                 for (int i = 0; i < enemyLocs.length; i++) {
-                    tempPaths[i] = findPath(enemyLocs[i], userLoc);
+                    tempPaths[i] = findPath(enemyLocs[i], player.location);
                 }
 
                 if (msElapsed % 200 == 0) {
@@ -115,7 +112,7 @@ public class Game {
                             // If there's overlap, move the randomly selected enemy first
                             // TODO create an Enemy Class to make managing their movement easier
                             if (!tempPaths[random].isEmpty()) {
-                                enemyMove(tempPaths[random].peek(), enemyLocs[random], enemies[random]);
+                                enemyMove(tempPaths[random].peek(), enemyLocs[random], enemyImgs[random]);
                                 updateEnemyLocation(random, tempPaths[random].pop());
                                 isGameOver();
                             }
@@ -123,7 +120,7 @@ public class Game {
                             // If no overlap, move all enemies one step
                             for (int i = 0; i < enemyLocs.length; i++) {
                                 if (!tempPaths[i].isEmpty()) {
-                                    enemyMove(tempPaths[i].peek(), enemyLocs[i], enemies[i]);
+                                    enemyMove(tempPaths[i].peek(), enemyLocs[i], enemyImgs[i]);
                                     updateEnemyLocation(i, tempPaths[i].pop());
                                     isGameOver();
                                 }
@@ -152,55 +149,55 @@ public class Game {
 
             // The up arrow key and the 'W' key moves the player up one space when pressed
             if (key == 38 || key == 87) {
-                userRow--;
-                updateUserLocation();
-                if (isWalkable(userLoc)) {
-                    grid.setImage(new Location(userRow, userCol), user);
-                    grid.setImage(new Location(userRow + 1, userCol), null);
+                player.location.row--;
+//                updateUserLocation();
+                if (isWalkable(player.location)) {
+                    grid.setImage(player.location, player.image);
+                    grid.setImage(new Location(player.location.row + 1, player.location.col), null);
                 } else {
-                    userRow++;
-                    updateUserLocation();
+                    player.location.row++;
+                    //updateUserLocation();
                 }
                 nTimesKeyHandled++;
             }
             // The down arrow key and the 'S' key move the player down one space when pressed
             if (key == 40 || key == 83) {
 
-                userRow++;
-                updateUserLocation();
-                if (isWalkable(userLoc)) {
-                    grid.setImage(new Location(userRow, userCol), user);
-                    grid.setImage(new Location(userRow - 1, userCol), null);
+                player.location.row++;
+//                updateUserLocation();
+                if (isWalkable(player.location)) {
+                    grid.setImage(player.location, player.image);
+                    grid.setImage(new Location(player.location.row - 1, player.location.col), null);
                 } else {
-                    userRow--;
-                    updateUserLocation();
+                    player.location.row--;
+//                    updateUserLocation();
                 }
                 nTimesKeyHandled++;
             }
             // The left arrow key and the 'A' key moves the player left one space when pressed
             if (key == 37 || key == 65) {
-                userCol--;
-                updateUserLocation();
-                if (isWalkable(userLoc)) {
-                    grid.setImage(new Location(userRow, userCol), user);
-                    grid.setImage(new Location(userRow, userCol + 1), null);
+                player.location.col--;
+//                updateUserLocation();
+                if (isWalkable(player.location)) {
+                    grid.setImage(player.location, player.image);
+                    grid.setImage(new Location(player.location.row, player.location.col + 1), null);
                 } else {
-                    userCol++;
-                    updateUserLocation();
+                    player.location.col++;
+//                    updateUserLocation();
                 }
                 nTimesKeyHandled++;
             }
             // The right arrow and the 'D' key moves the player right one space when pressed
             if (key == 39 || key == 68) {
-                userCol++;
-                updateUserLocation();
-                if (isWalkable(userLoc)) {
-                    grid.setImage(new Location(userRow, userCol), user);
-                    grid.setImage(new Location(userRow, userCol - 1), null);
+                player.location.col++;
+//                updateUserLocation();
+                if (isWalkable(player.location)) {
+                    grid.setImage(player.location, player.image);
+                    grid.setImage(new Location(player.location.row, player.location.col - 1), null);
                 } else {
                     //failed to move so restore previous location
-                    userCol--;
-                    updateUserLocation();
+                    player.location.col--;
+//                    updateUserLocation();
                 }
                 nTimesKeyHandled++;
             }
@@ -212,10 +209,6 @@ public class Game {
             }
         }
 
-    }
-
-    public void updateUserLocation() {
-        userLoc = (new Location(userRow, userCol));
     }
 
     public void updateEnemyLocation(int enemyIndex, Location newEnemyLocation) {
@@ -232,17 +225,17 @@ public class Game {
     // Returns false if that location is blocked, true otherwise
     public boolean isExpandable(Location loc) {
         return withinBound(loc) && (grid.getImage(loc) == null ||
-                grid.getImage(loc) == user);
+                grid.getImage(loc) == player.image);
     }
 
     // Returns true if all surrouding blocks are empty and within boundaries
     public boolean isWalkable(Location loc) {
-        return withinBound(loc) && (grid.getImage(loc) == null || grid.getImage(loc) == gem);
+        return withinBound(loc) && (grid.getImage(loc) == null || grid.getImage(loc) == gemImg);
     }
 
     public boolean isGemSpawnable(Location loc) {
-        return withinBound(loc) || grid.getImage(loc) == enemies[0] ||
-                grid.getImage(loc) == enemies[1] || grid.getImage(loc) == enemies[2];
+        return withinBound(loc) || grid.getImage(loc) == enemyImgs[0] ||
+                grid.getImage(loc) == enemyImgs[1] || grid.getImage(loc) == enemyImgs[2];
     }
 
     // Modifier method for the continuous updating of the enemy location
@@ -404,7 +397,7 @@ public class Game {
             for (int j = 2; j < grid.getNumRows() - 2; j++) {
                 random = r.nextInt(grid.getNumRows());
                 if (random % j == 1 && (random % 3 == 0 || i % 3 == 1)) {
-                    grid.setImage(new Location(i, j), obs);
+                    grid.setImage(new Location(i, j), obstacleImg);
                 }
             }
         }
@@ -426,7 +419,7 @@ public class Game {
     }
 
     public void gemCaught() {
-        if (userLoc.equals(gemLoc)){
+        if (player.location.equals(gemLoc)){
             gemLoc = null;
             gemExists = false;
             score += 50;
@@ -436,7 +429,7 @@ public class Game {
     public void addGem() {
         gemLoc = getFreeCellForGem();  // Assign the new gem location directly to gemLoc
         updateGemLocation(gemLoc);
-        grid.setImage(gemLoc, gem);    // Update the grid with the gem image at the new location
+        grid.setImage(gemLoc, gemImg);    // Update the grid with the gem image at the new location
         gemExists = true;
     }
 
@@ -455,7 +448,7 @@ public class Game {
 
             // Check if any enemy location equals user location
             for (Location enemyLoc : enemyLocs) {
-                if (enemyLoc.equals(userLoc)) {
+                if (enemyLoc.equals(player.location)) {
                     enemyTouchedUser = true;
                     break; // Exit loop on first match
                 }
