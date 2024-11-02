@@ -1,6 +1,6 @@
 public class Location {
-    public int row;
-    public int col;
+    protected int row;
+    protected int col;
 
     public Location(int r, int c) {
         row = r;
