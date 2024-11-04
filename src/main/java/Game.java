@@ -69,10 +69,6 @@ public class Game {
 
     public void play() {
         Random r = new Random();
-//        Stack<Location> tempPath;
-//        Stack<Location> tempPath2;
-//        Stack<Location> tempPath3;
-//        Location tempUser;
 
         // This variable helps cap the number of times the key is handled while the
         // Thread is sleeping (capping it to 1)
