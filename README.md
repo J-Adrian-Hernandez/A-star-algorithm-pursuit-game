@@ -1,50 +1,89 @@
-# A-star-algorithm-game
+# Elude
 
-Description:
-A game in which agents pursue a player in a map with obstacles using
-the A* star algorithm to calculate the shortest path to the player.
-The goal of the game is to escape the enemies as long as possible while 
-you capture as many gems as you can. Big score bonuses for capturing gems.
+[![Java](https://img.shields.io/badge/Java-8%2B-orange)](https://www.oracle.com/java/)
+[![Gradle](https://img.shields.io/badge/Gradle-4.9-blue)](https://gradle.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Note:
-This project is meant to be a resource for the interested in making a game
-in Java and/or trying to learn how to implement the A* algorithm.
-I hope you find my implementation of the algorithm in this little game
-helpful to your learning!
+A Java-based pursuit game where AI agents chase the player using A* pathfinding algorithm. Collect gems while evading enemies to achieve the highest score possible!
 
-# Getting Started
+## 🎮 Features
 
-Compiling the program:
+- A* pathfinding algorithm implementation
+- Dynamic enemy AI behavior
+- Score-based gem collection system
+- Obstacle-rich environment
+- Cool soundtrack
 
-Terminal
-javac Game.java
+## 🚀 Prerequisites
 
-IDE: 
-run the compile tool
+- Java 8 or higher
+- Gradle 4.9 or higher (for building)
 
-Gradle: 
+## 🛠️ Building the Project
+
+### Using Gradle (Recommended)
+
+```bash
+# Build the project
 gradle assemble
 
-# Running the program
-
-Terminal: 
-java Game
-
-IDE: 
-there should be a run or debug button you can press
-
-Gradle: 
+# Run the game
 gradle run
+```
 
-# Music and Sound Credits
+### Manual Compilation
 
-Music:
-Tracks: Hyouhaku + Kokuten
-Artist: Unknown
+```bash
+# Compile
+javac Game.java
 
-No Copyright Infringement is intended.
+# Run
+java Game
+```
 
-# Image files
+### IDE Support
+The project can be imported into major Java IDEs (IntelliJ IDEA, Eclipse, VS Code) that support Gradle projects.
 
-Game: Pokemon Emerald
-Company: Pokemon Company
+## 🎯 How to Play
+
+1. Use arrow keys to move your character
+2. Collect gems to increase your score
+3. Avoid enemies that pursue you using A* pathfinding
+4. Try to survive as long as possible
+
+## 🏗️ Project Structure
+
+```
+elude/
+├── src/
+│   └── main/
+│       └── java/
+│           └── Game.java
+├── build.gradle
+├── settings.gradle
+└── README.md
+```
+
+## 🎵 Credits
+
+### Music
+- Tracks: Hyouhaku + Kokuten
+- Artist: Unknown
+
+### Assets
+- Game sprites: Pokemon Emerald (Pokemon Company)
+
+## 📝 License
+
+This project is intended as an educational resource for:
+- Java game development
+- A* algorithm implementation
+- Pathfinding in games
+
+## ⚠️ Disclaimer
+
+The game assets are property of their respective owners and are used for educational purposes only. No copyright infringement intended.
+
+## 🤝 Contributing
+
+Feel free to open issues and pull requests for any improvements you want to add.
